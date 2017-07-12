@@ -7,9 +7,8 @@ Package license: MIT
 
 Feedstock license: BSD 3-Clause
 
-Summary: George is a fast and flexible Python library for Gaussian Process Regression.
+Summary: Fast and flexible Gaussian Process regression in Python
 
-George is a fast and flexible Python library for Gaussian Process Regression.
 
 
 Current build status
@@ -17,7 +16,7 @@ Current build status
 
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/george-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/george-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/george-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/george-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/george-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/george-feedstock/branch/master)
 
 Current release info
 ====================

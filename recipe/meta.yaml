@@ -10,6 +10,9 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    # Applies a patch to fix gcc v4.8 compatibility issue.
+    - gcc-4.8.diff
 
 build:
   number: 0

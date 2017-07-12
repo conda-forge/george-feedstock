@@ -26,6 +26,7 @@ requirements:
     - toolchain
     - pybind11
     - numpy x.x
+    - scipy  # [win]
 
   run:
     - python

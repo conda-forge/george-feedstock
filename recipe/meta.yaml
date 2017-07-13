@@ -1,6 +1,6 @@
 {% set name = "george" %}
-{% set version = "0.2.1" %}
-{% set sha256 = "e5b073f054e7520d898056d51a30aa2ebccce69cbb43b8b2e9c984f251df739a" %}
+{% set version = "0.3.0" %}
+{% set sha256 = "dba83ad0c085f9aaaa4a93287124c96fd82d5b5c0429932842b32aa4344168d4" %}
 
 package:
   name: {{ name|lower }}
@@ -8,27 +8,32 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.python.org/packages/source/g/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    # Applies a patch to fix gcc v4.8 compatibility issue.
+    - gcc-4.8.diff
 
 build:
   number: 0
-  skip: true  # [win]
-  script: python setup.py build_ext -I{{environ["PREFIX"]}}/include/eigen3 install --single-version-externally-managed --record record.txt
+  script:
+    - python setup.py install --single-version-externally-managed --record record.txt  # [not win]
 
 requirements:
   build:
     - python
-    - eigen
-    - numpy x.x
-    - cython
     - setuptools
+    - toolchain
+    - pybind11
+    - numpy x.x
+    - scipy  # [win]
 
   run:
     - python
-    - eigen
     - numpy x.x
     - scipy
+    - setuptools  # [win]
+    - vs2015_runtime  # [win]
 
 test:
   imports:
@@ -39,13 +44,12 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'George is a fast and flexible Python library for Gaussian Process Regression.'
-  description: |
-    George is a fast and flexible Python library for Gaussian Process Regression.
-  doc_url: http://dan.iel.fm/george/current
+  summary: 'Fast and flexible Gaussian Process regression in Python'
+  doc_url: http://george.readthedocs.io/
   dev_url: https://github.com/dfm/george
 
 extra:
   recipe-maintainers:
     - hellovenkat
     - scopatz
+    - dfm

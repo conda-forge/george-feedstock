@@ -15,7 +15,7 @@ source:
     - gcc-4.8.diff
 
 build:
-  number: 0
+  number: 1
   script:
     - python setup.py install --single-version-externally-managed --record record.txt  # [not win]
 
@@ -25,12 +25,12 @@ requirements:
     - setuptools
     - toolchain
     - pybind11
-    - numpy x.x
+    - numpy 1.11.*
     - scipy  # [win]
 
   run:
     - python
-    - numpy x.x
+    - numpy >=1.11
     - scipy
     - setuptools  # [win]
     - vs2015_runtime  # [win]

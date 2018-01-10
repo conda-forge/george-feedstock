@@ -1,6 +1,6 @@
 {% set name = "george" %}
-{% set version = "0.3.0" %}
-{% set sha256 = "dba83ad0c085f9aaaa4a93287124c96fd82d5b5c0429932842b32aa4344168d4" %}
+{% set version = "0.3.1" %}
+{% set sha256 = "175f1a8022430adab8bf8e5e0ffc3941e5f48ca831bd9460e69716cc2820e628" %}
 
 package:
   name: {{ name|lower }}
@@ -10,12 +10,9 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    # Applies a patch to fix gcc v4.8 compatibility issue.
-    - gcc-4.8.diff
 
 build:
-  number: 1
+  number: 0
   script:
     - python setup.py install --single-version-externally-managed --record record.txt  # [not win]
 

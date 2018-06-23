@@ -18,16 +18,19 @@ build:
 
 requirements:
   build:
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
     - setuptools
-    - toolchain
     - pybind11
-    - numpy 1.11.*
+    - numpy
     - scipy  # [win]
 
   run:
     - python
-    - numpy >=1.11
+    - {{ pin_compatible('numpy') }}
     - scipy
     - setuptools  # [win]
     - vs2015_runtime  # [win]

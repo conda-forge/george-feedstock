@@ -1,20 +1,16 @@
-{% set name = "george" %}
 {% set version = "0.3.1" %}
-{% set sha256 = "175f1a8022430adab8bf8e5e0ffc3941e5f48ca831bd9460e69716cc2820e628" %}
 
 package:
-  name: {{ name|lower }}
+  name: george
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/g/george/george-{{ version }}.tar.gz
+  sha256: 175f1a8022430adab8bf8e5e0ffc3941e5f48ca831bd9460e69716cc2820e628
 
 build:
   number: 1001
-  script:
-    - python setup.py install --single-version-externally-managed --record record.txt  # [not win]
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"  # [not win]
   skip: True  # [win and py2k]
 
 requirements:
@@ -24,7 +20,7 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - python
-    - setuptools
+    - pip
     - pybind11
     - numpy
     - scipy  # [win]

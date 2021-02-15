@@ -10,20 +10,18 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv  # [not win]
-  skip: true  # [win and py2k]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
-    - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+
   host:
     - python
     - pip
     - pybind11
     - numpy
-    - scipy  # [win]
 
   run:
     - python

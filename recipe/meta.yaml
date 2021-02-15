@@ -1,4 +1,4 @@
-{% set version = "0.3.1" %}
+{% set version = "0.4.0" %}
 
 package:
   name: george
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/g/george/george-{{ version }}.tar.gz
-  sha256: 175f1a8022430adab8bf8e5e0ffc3941e5f48ca831bd9460e69716cc2820e628
+  sha256: 3c88304b4a816c41b01198c084e3107ba7b0ab43881c60d249829eb2321245b1
 
 build:
-  number: 1004
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"  # [not win]
-  skip: True  # [win and py2k]
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv  # [not win]
+  skip: true  # [win and py2k]
 
 requirements:
   build:
@@ -41,7 +41,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Fast and flexible Gaussian Process regression in Python'
+  summary: Fast and flexible Gaussian Process regression in Python
   doc_url: http://george.readthedocs.io/
   dev_url: https://github.com/dfm/george
 

@@ -7,9 +7,11 @@ package:
 source:
   url: https://pypi.io/packages/source/g/george/george-{{ version }}.tar.gz
   sha256: 3c88304b4a816c41b01198c084e3107ba7b0ab43881c60d249829eb2321245b1
+  patches:
+    - 0001-fix-windows-data-types.patch
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -22,6 +24,8 @@ requirements:
     - pip
     - pybind11
     - numpy
+    - setuptools_scm
+    - toml
 
   run:
     - python

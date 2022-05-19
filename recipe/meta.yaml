@@ -22,6 +22,8 @@ requirements:
     - pip
     - pybind11
     - numpy
+    - setuptools_scm
+    - toml
 
   run:
     - python

@@ -114,16 +114,3 @@ index 821ed56..3db98c3 100644
      py::array_t<double> result({n1, n2, ndim});
      auto resultp = result.mutable_unchecked<3>();
      for (size_t i = 0; i < n1; ++i) {
-diff --git a/templates/parser.h b/templates/parser.h
-index b996939..bb8ee47 100644
---- a/templates/parser.h
-+++ b/templates/parser.h
-@@ -100,7 +100,7 @@ kernels::Kernel* parse_kernel_spec (const py::object& kernel_spec) {
-       py::function f = py::function(metric.attr("get_parameter_vector"));
-       py::array_t<double> vector = py::array_t<double>(f(true));
-       auto data = vector.unchecked<1>();
--      for (ssize_t i = 0; i < data.shape(0); ++i) {
-+      for (py::ssize_t i = 0; i < data.shape(0); ++i) {
-         kernel->set_metric_parameter(i, data(i));
-       }
- 

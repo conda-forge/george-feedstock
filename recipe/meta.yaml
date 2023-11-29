@@ -7,8 +7,6 @@ package:
 source:
   url: https://pypi.io/packages/source/g/george/george-{{ version }}.tar.gz
   sha256: 4cbf3ce661cf985efa8cdcc94aae56e88cadbbd30bbaf083601e4a8e110143be
-  patches:
-    - 0001-fix-windows-data-types.patch
 
 build:
   number: 0

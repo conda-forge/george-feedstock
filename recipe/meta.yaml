@@ -1,4 +1,4 @@
-{% set version = "0.4.0" %}
+{% set version = "0.4.2" %}
 
 package:
   name: george
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/g/george/george-{{ version }}.tar.gz
-  sha256: 3c88304b4a816c41b01198c084e3107ba7b0ab43881c60d249829eb2321245b1
+  sha256: 60b078fd898f0050ddc5c25a8eac888549f9a727a90f7b0c4698258df1ff0125
   patches:
     - 0001-fix-windows-data-types.patch
 
 build:
-  number: 7
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:

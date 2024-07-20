@@ -27,7 +27,7 @@ requirements:
     - python
     - scikit-build-core
     - setuptools_scm
-    - nanobind
+    - pybind11
     - pip
   run:
     - python

@@ -14,30 +14,23 @@ build:
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - numpy                                  # [build_platform != target_platform]
-    - pybind11                               # [build_platform != target_platform]
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - numpy                                  # [build_platform != target_platform]
-    - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - python                                    # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}        # [build_platform != target_platform]
+    - scikit-build-core                         # [build_platform != target_platform]
+    - setuptools_scm                            # [build_platform != target_platform]
+    - pybind11                                  # [build_platform != target_platform]
     - {{ compiler('cxx') }}
-
+    - cmake
+    - make  # [linux]
   host:
     - python
-    - pip
-    - pybind11
-    - numpy
+    - scikit-build-core
     - setuptools_scm
-    - toml
-
+    - nanobind
+    - pip
   run:
     - python
     - scipy
-    - setuptools  # [win]
-    - vs2015_runtime  # [win]
 
 test:
   imports:

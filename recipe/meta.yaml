@@ -23,7 +23,7 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
-    - make  # [linux]
+    - make  # [not win]
   host:
     - python
     - scikit-build-core

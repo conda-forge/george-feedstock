@@ -1,4 +1,4 @@
-{% set version = "0.4.3" %}
+{% set version = "0.4.4" %}
 
 package:
   name: george
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/g/george/george-{{ version }}.tar.gz
-  sha256: 9bdc873d72f4ccfd06c20abc95da5c4184c77fb6225303a40202e9060a6e6bff
+  sha256: dbf5e10aded012a67c48dc52bed5636523552a4ff2775946bad8b9cca9b501e8
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [py<39]
 

@@ -5,11 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/g/george/george-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/g/george/george-{{ version }}.tar.gz
   sha256: dbf5e10aded012a67c48dc52bed5636523552a4ff2775946bad8b9cca9b501e8
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [py<39]
 
